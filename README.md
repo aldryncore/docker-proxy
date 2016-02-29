@@ -1,12 +1,12 @@
-# Simple HTTP redirect
+# nginx Proxy
 
-[![](https://badge.imagelayers.io/ianneub/redirect:latest.svg)](https://imagelayers.io/?images=ianneub/redirect:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/aldryn/docker-proxy:latest.svg)](https://imagelayers.io/?images=aldryn/docker-proxy:latest 'Get your own badge on imagelayers.io')
 
-This docker image will redirect all HTTP requests on port 80 to the root path specified in the `REDIRECT` environment variable.
+This docker image will proxy all HTTP requests on port 80 to the root path specified in the `PROXY_UPSTREAM` environment variable.
 
 The entire URI will be sent to the redirected path like this:
 
-When `REDIRECT` is set to `https://www.mydomain.com`:
+When `PROXY_UPSTREAM` is set to `https://www.mydomain.com`:
 ```
 / => https://www.mydomain.com/
 /asdf => https://www.mydomain.com/asdf
@@ -15,4 +15,4 @@ When `REDIRECT` is set to `https://www.mydomain.com`:
 
 ## Example
 
-`docker run -p 3000:80 -e "REDIRECT=https://www.mydomain.com" ianneub/redirect`
+`docker run -p 3000:80 -e "PROXY_UPSTREAM=https://www.mydomain.com" aldryn/docker-proxy`

@@ -2,5 +2,7 @@ web:
   build: .
   ports:
     - "3000:80"
+  volumes:
+    - ./nginx-proxy.conf.tmpl:/app/nginx.conf.tmpl
   environment:
-    - REDIRECT=https://www.mydomain.com
+    - PROXY_UPSTREAM=https://www.mydomain.com

@@ -6,8 +6,8 @@ RUN tar -C /usr/local/bin/ -zxvf /dockerize.tgz \
     && rm /dockerize.tgz
 
 COPY run.sh /
-COPY default.conf.tmpl /app/default.conf.tmpl
+COPY nginx.conf.tmpl /app/nginx.conf.tmpl
 
-ENV REDIRECT **None**
+ENV PROXY_UPSTREAM **None**
 
 CMD ["/run.sh"]

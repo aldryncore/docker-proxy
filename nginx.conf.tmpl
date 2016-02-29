@@ -1,0 +1,10 @@
+server {
+    server_name default_server;
+    listen 80;
+
+    location / {
+      proxy_pass      {{ .Env.PROXY_UPSTREAM }};
+      proxy_redirect  {{ .Env.PROXY_UPSTREAM }} /;
+      proxy_read_timeout 60s;
+    }
+}
